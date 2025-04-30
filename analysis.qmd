@@ -1,0 +1,116 @@
+---
+title: "Customer Spending Analysis"
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(knitr)
+library(scales)
+
+# Set dark theme
+theme_set(theme_minimal() +
+  theme(
+    plot.background = element_rect(fill = "#222222"),
+    panel.background = element_rect(fill = "#333333"),
+    text = element_text(color = "white"),
+    axis.text = element_text(color = "white")
+  ))
+
+ecomdata <- read.csv("./data/ecomdata")
+```
+
+## Data Overview
+
+```{r data-overview}
+str(ecomdata)
+summary(ecomdata)
+```
+
+## Spending Patterns
+
+```{r website-spending, fig.cap="Time on website vs spending"}
+ggplot(ecomdata, aes(x=Time.on.Website, y=Yearly.Amount.Spent)) + 
+  geom_point(color="orange") + 
+  labs(title = "Website Engagement vs Spending",
+       x = "Time on Website (minutes)",
+       y = "Yearly Amount Spent ($)") +
+  scale_y_continuous(labels = dollar)
+```
+
+```{r session-spending, fig.cap="Session length vs spending"}
+ggplot(ecomdata, aes(x=Avg..Session.Length, y=Yearly.Amount.Spent)) + 
+  geom_point(color="orange") +
+  labs(title = "Session Length vs Spending",
+       x = "Average Session Length (minutes)",
+       y = "Yearly Amount Spent ($)") +
+  scale_y_continuous(labels = dollar)
+```
+
+## Variable Relationships
+
+```{r pairs-plot, fig.cap="Pairwise relationships"}
+pairs(ecomdata[c("Avg..Session.Length", "Time.on.App", "Time.on.Website",
+                "Length.of.Membership", "Yearly.Amount.Spent")],
+      col = "orange",
+      pch = 16,
+      labels = c("Session Length", "App Time", "Website Time",
+                "Membership Years", "Yearly Spend"))
+```
+
+## Membership Analysis
+
+```{r membership-hist, fig.cap="Membership duration"}
+ggplot(ecomdata, aes(x=Length.of.Membership)) + 
+  geom_histogram(fill="orange", color="white", binwidth=0.5) +
+  labs(title = "Customer Tenure Distribution",
+       x = "Years of Membership",
+       y = "Count")
+```
+
+## Predictive Modeling
+
+```{r linear-model}
+lm.fit <- lm(Yearly.Amount.Spent ~ Length.of.Membership, data=ecomdata)
+summary(lm.fit)
+```
+
+```{r model-plot, fig.cap="Regression line"}
+ggplot(ecomdata, aes(x=Length.of.Membership, y=Yearly.Amount.Spent)) + 
+  geom_point(color="orange", alpha=0.5) +
+  geom_smooth(method="lm", color="red") +
+  labs(title = "Membership Duration Predicts Spending",
+       x = "Years of Membership",
+       y = "Annual Spending ($)") +
+  scale_y_continuous(labels = dollar)
+```
+
+## Model Validation
+
+```{r validation}
+set.seed(1)
+train_idx <- sample(1:nrow(ecomdata), 0.8*nrow(ecomdata))
+train <- ecomdata[train_idx,]
+test <- ecomdata[-train_idx,]
+
+model <- lm(Yearly.Amount.Spent ~ Length.of.Membership, data=train)
+preds <- predict(model, test)
+errors <- preds - test$Yearly.Amount.Spent
+
+metrics <- data.frame(
+  RMSE = sqrt(mean(errors^2)),
+  MAPE = mean(abs(errors/test$Yearly.Amount.Spent)),
+  R2 = summary(model)$r.squared
+)
+
+kable(metrics, caption = "Model Performance")
+```
+
+## Conclusions
+
+Based on the analysis of the e-commerce customer data, we can draw the following key insights:
+
+1. **Membership Duration**: The strongest predictor of customer behavior is the length of their membership. Specifically, for every year of membership, the model indicates a coefficient of `r round(coef(lm.fit)[2], 1)` years, suggesting that longer membership durations correlate with higher engagement or purchases.
+
+2. **Model Performance**: The linear regression model explains `r round(summary(lm.fit)$r.squared*100, 1)`% of the variance in customer behavior. This indicates that the model provides a fairly strong fit, capturing a significant portion of the factors influencing customer actions.
+
+These findings provide valuable insights that can guide e-commerce platforms in identifying key customer segments and tailoring strategies to enhance customer retention and engagement.

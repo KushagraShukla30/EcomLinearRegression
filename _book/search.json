@@ -1,0 +1,92 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "E-Commerce Customer Insights",
+    "section": "",
+    "text": "0.1 Preface\nThis book presents a practical analysis of e-commerce customer data to extract actionable insights for business strategy. Throughout these topics, we examine customer behavior patterns, identify meaningful trends, and demonstrate how data analysis techniques can inform e-commerce decision-making.\nThe analysis draws from the Kaggle E-Commerce Customer Dataset, which contains valuable metrics on customer interactions, device preferences, and purchasing habits. My goal is to provide readers with a framework for transforming raw data into strategic business intelligence.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "2  Customer Spending Analysis",
+    "section": "",
+    "text": "2.1 Data Overview\nstr(ecomdata)\n\n'data.frame':   500 obs. of  8 variables:\n $ Email               : chr  \"mstephenson@fernandez.com\" \"hduke@hotmail.com\" \"pallen@yahoo.com\" \"riverarebecca@gmail.com\" ...\n $ Address             : chr  \"835 Frank Tunnel\\nWrightmouth, MI 82180-9605\" \"4547 Archer Common\\nDiazchester, CA 06566-8576\" \"24645 Valerie Unions Suite 582\\nCobbborough, DC 99414-7564\" \"1414 David Throughway\\nPort Jason, OH 22070-1220\" ...\n $ Avatar              : chr  \"Violet\" \"DarkGreen\" \"Bisque\" \"SaddleBrown\" ...\n $ Avg..Session.Length : num  34.5 31.9 33 34.3 33.3 ...\n $ Time.on.App         : num  12.7 11.1 11.3 13.7 12.8 ...\n $ Time.on.Website     : num  39.6 37.3 37.1 36.7 37.5 ...\n $ Length.of.Membership: num  4.08 2.66 4.1 3.12 4.45 ...\n $ Yearly.Amount.Spent : num  588 392 488 582 599 ...\n\nsummary(ecomdata)\n\n    Email             Address             Avatar          Avg..Session.Length\n Length:500         Length:500         Length:500         Min.   :29.53      \n Class :character   Class :character   Class :character   1st Qu.:32.34      \n Mode  :character   Mode  :character   Mode  :character   Median :33.08      \n                                                          Mean   :33.05      \n                                                          3rd Qu.:33.71      \n                                                          Max.   :36.14      \n  Time.on.App     Time.on.Website Length.of.Membership Yearly.Amount.Spent\n Min.   : 8.508   Min.   :33.91   Min.   :0.2699       Min.   :256.7      \n 1st Qu.:11.388   1st Qu.:36.35   1st Qu.:2.9304       1st Qu.:445.0      \n Median :11.983   Median :37.07   Median :3.5340       Median :498.9      \n Mean   :12.052   Mean   :37.06   Mean   :3.5335       Mean   :499.3      \n 3rd Qu.:12.754   3rd Qu.:37.72   3rd Qu.:4.1265       3rd Qu.:549.3      \n Max.   :15.127   Max.   :40.01   Max.   :6.9227       Max.   :765.5",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customer Spending Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "analysis.html#spending-patterns",
+    "href": "analysis.html#spending-patterns",
+    "title": "2  Customer Spending Analysis",
+    "section": "2.2 Spending Patterns",
+    "text": "2.2 Spending Patterns\n\nggplot(ecomdata, aes(x=Time.on.Website, y=Yearly.Amount.Spent)) + \n  geom_point(color=\"orange\") + \n  labs(title = \"Website Engagement vs Spending\",\n       x = \"Time on Website (minutes)\",\n       y = \"Yearly Amount Spent ($)\") +\n  scale_y_continuous(labels = dollar)\n\n\n\n\nTime on website vs spending\n\n\n\n\n\nggplot(ecomdata, aes(x=Avg..Session.Length, y=Yearly.Amount.Spent)) + \n  geom_point(color=\"orange\") +\n  labs(title = \"Session Length vs Spending\",\n       x = \"Average Session Length (minutes)\",\n       y = \"Yearly Amount Spent ($)\") +\n  scale_y_continuous(labels = dollar)\n\n\n\n\nSession length vs spending",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customer Spending Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "analysis.html#variable-relationships",
+    "href": "analysis.html#variable-relationships",
+    "title": "2  Customer Spending Analysis",
+    "section": "2.3 Variable Relationships",
+    "text": "2.3 Variable Relationships\n\npairs(ecomdata[c(\"Avg..Session.Length\", \"Time.on.App\", \"Time.on.Website\",\n                \"Length.of.Membership\", \"Yearly.Amount.Spent\")],\n      col = \"orange\",\n      pch = 16,\n      labels = c(\"Session Length\", \"App Time\", \"Website Time\",\n                \"Membership Years\", \"Yearly Spend\"))\n\n\n\n\nPairwise relationships",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customer Spending Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "analysis.html#membership-analysis",
+    "href": "analysis.html#membership-analysis",
+    "title": "2  Customer Spending Analysis",
+    "section": "2.4 Membership Analysis",
+    "text": "2.4 Membership Analysis\n\nggplot(ecomdata, aes(x=Length.of.Membership)) + \n  geom_histogram(fill=\"orange\", color=\"white\", binwidth=0.5) +\n  labs(title = \"Customer Tenure Distribution\",\n       x = \"Years of Membership\",\n       y = \"Count\")\n\n\n\n\nMembership duration",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customer Spending Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "analysis.html#predictive-modeling",
+    "href": "analysis.html#predictive-modeling",
+    "title": "2  Customer Spending Analysis",
+    "section": "2.5 Predictive Modeling",
+    "text": "2.5 Predictive Modeling\n\nlm.fit &lt;- lm(Yearly.Amount.Spent ~ Length.of.Membership, data=ecomdata)\nsummary(lm.fit)\n\n\nCall:\nlm(formula = Yearly.Amount.Spent ~ Length.of.Membership, data = ecomdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-125.975  -29.032   -0.494   33.033  147.777 \n\nCoefficients:\n                     Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)           272.400      7.675   35.49   &lt;2e-16 ***\nLength.of.Membership   64.219      2.090   30.72   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 46.66 on 498 degrees of freedom\nMultiple R-squared:  0.6546,    Adjusted R-squared:  0.6539 \nF-statistic: 943.9 on 1 and 498 DF,  p-value: &lt; 2.2e-16\n\n\n\nggplot(ecomdata, aes(x=Length.of.Membership, y=Yearly.Amount.Spent)) + \n  geom_point(color=\"orange\", alpha=0.5) +\n  geom_smooth(method=\"lm\", color=\"red\") +\n  labs(title = \"Membership Duration Predicts Spending\",\n       x = \"Years of Membership\",\n       y = \"Annual Spending ($)\") +\n  scale_y_continuous(labels = dollar)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\nRegression line",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customer Spending Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "analysis.html#model-validation",
+    "href": "analysis.html#model-validation",
+    "title": "2  Customer Spending Analysis",
+    "section": "2.6 Model Validation",
+    "text": "2.6 Model Validation\n\nset.seed(1)\ntrain_idx &lt;- sample(1:nrow(ecomdata), 0.8*nrow(ecomdata))\ntrain &lt;- ecomdata[train_idx,]\ntest &lt;- ecomdata[-train_idx,]\n\nmodel &lt;- lm(Yearly.Amount.Spent ~ Length.of.Membership, data=train)\npreds &lt;- predict(model, test)\nerrors &lt;- preds - test$Yearly.Amount.Spent\n\nmetrics &lt;- data.frame(\n  RMSE = sqrt(mean(errors^2)),\n  MAPE = mean(abs(errors/test$Yearly.Amount.Spent)),\n  R2 = summary(model)$r.squared\n)\n\nkable(metrics, caption = \"Model Performance\")\n\n\nModel Performance\n\n\nRMSE\nMAPE\nR2\n\n\n\n\n44.78106\n0.0769213\n0.6503268",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customer Spending Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "analysis.html#conclusions",
+    "href": "analysis.html#conclusions",
+    "title": "2  Customer Spending Analysis",
+    "section": "2.7 Conclusions",
+    "text": "2.7 Conclusions\nBased on the analysis of the e-commerce customer data, we can draw the following key insights:\n\nMembership Duration: The strongest predictor of customer behavior is the length of their membership. Specifically, for every year of membership, the model indicates a coefficient of 64.2 years, suggesting that longer membership durations correlate with higher engagement or purchases.\nModel Performance: The linear regression model explains 65.5% of the variance in customer behavior. This indicates that the model provides a fairly strong fit, capturing a significant portion of the factors influencing customer actions.\n\nThese findings provide valuable insights that can guide e-commerce platforms in identifying key customer segments and tailoring strategies to enhance customer retention and engagement.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customer Spending Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#preface",
+    "href": "index.html#preface",
+    "title": "E-Commerce Customer Insights",
+    "section": "",
+    "text": "0.1.1 Contact Information\nKushagra Shukla\n- LinkedIn: shukla-kushagra\n- Kaggle: KushagraShukla\n- Email: kushu123456789@gmail.com\n- Portfolio: kushu.vercel.app\n- X: @kushagracodes\n\nKushagra Shukla",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  }
+]

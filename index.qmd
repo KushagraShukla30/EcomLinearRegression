@@ -1,0 +1,27 @@
+---
+title: "Preface"
+format:
+  html:
+    toc: false
+---
+
+## Preface
+
+This book presents a practical analysis of e-commerce customer data to extract actionable insights for business strategy. Throughout these topics, we examine customer behavior patterns, identify meaningful trends, and demonstrate how data analysis techniques can inform e-commerce decision-making.
+
+The analysis draws from the [Kaggle E-Commerce Customer Dataset](https://www.kaggle.com/datasets/iyadavvaibhav/ecommerce-customer-device-usage), which contains valuable metrics on customer interactions, device preferences, and purchasing habits. My goal is to provide readers with a framework for transforming raw data into strategic business intelligence.
+
+---
+
+### Contact Information
+
+Kushagra Shukla  
+- **LinkedIn**: [shukla-kushagra](https://www.linkedin.com/in/shukla-kushagra)  
+- **Kaggle**: [KushagraShukla](https://www.kaggle.com/KushagraShukla)  
+- **Email**: [kushu123456789@gmail.com](mailto:kushu123456789@gmail.com)  
+- **Portfolio**: [kushu.vercel.app](https://kushu.vercel.app)  
+- **X**: [@kushagracodes](https://twitter.com/kushagracodes)
+
+---
+
+**Kushagra Shukla**  
