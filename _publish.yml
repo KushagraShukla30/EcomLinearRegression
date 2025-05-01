@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 942435ce-db11-4d17-a5ed-5c106b98aa26
+      url: https://ecom-kushu.netlify.app

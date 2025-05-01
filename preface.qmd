@@ -11,6 +11,8 @@ This book presents a practical analysis of e-commerce customer data to extract a
 
 The analysis draws from the [Kaggle E-Commerce Customer Dataset](https://www.kaggle.com/datasets/iyadavvaibhav/ecommerce-customer-device-usage), which contains valuable metrics on customer interactions, device preferences, and purchasing habits. My goal is to provide readers with a framework for transforming raw data into strategic business intelligence.
 
+Please check the next chapter for results and conclusions.
+
 ---
 
 ### Contact Information

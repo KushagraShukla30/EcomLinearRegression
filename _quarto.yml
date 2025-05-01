@@ -5,7 +5,7 @@ book:
   title: "E-Commerce Customer Insights"
   author: "Kushagra Shukla"
   chapters:
-    - index.qmd
+    - preface.qmd
     - analysis.qmd
 
 format:
