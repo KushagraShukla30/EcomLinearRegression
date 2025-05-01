@@ -4,17 +4,17 @@
     "href": "index.html",
     "title": "E-Commerce Customer Insights",
     "section": "",
-    "text": "0.1 Preface\nThis book presents a practical analysis of e-commerce customer data to extract actionable insights for business strategy. Throughout these topics, we examine customer behavior patterns, identify meaningful trends, and demonstrate how data analysis techniques can inform e-commerce decision-making.\nThe analysis draws from the Kaggle E-Commerce Customer Dataset, which contains valuable metrics on customer interactions, device preferences, and purchasing habits. My goal is to provide readers with a framework for transforming raw data into strategic business intelligence.\nPlease check the next chapter for results and conclusions.",
+    "text": "1 Preface\nThis book presents a practical analysis of e-commerce customer data to extract actionable insights for business strategy. We explore customer behavior patterns, identify key trends, and demonstrate how data analysis techniques can inform e-commerce decision-making.\nThe analysis is based on the Kaggle E-Commerce Customer Dataset, which includes valuable metrics on customer interactions, device usage, and purchasing behavior. The goal is to provide a clear framework for transforming raw data into strategic business insights.\nFor detailed results and conclusions, please refer to the next chapter.\nGitHub Repository: EcomLinearRegression",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
     ]
   },
   {
-    "objectID": "index.html#github-repository-link-ecomlinearregression",
-    "href": "index.html#github-repository-link-ecomlinearregression",
+    "objectID": "index.html#contact-information",
+    "href": "index.html#contact-information",
     "title": "E-Commerce Customer Insights",
-    "section": "0.2 GitHub Repository Link: EcomLinearRegression",
-    "text": "0.2 GitHub Repository Link: EcomLinearRegression\n\n0.2.1 Contact Information\nKushagra Shukla\n- LinkedIn: shukla-kushagra\n- Kaggle: KushagraShukla\n- Email: kushu123456789@gmail.com - GitHub: @kushagrashukla30 - Portfolio: kushu.vercel.app\n- X: @kushagracodes\n\nKushagra Shukla",
+    "section": "1.1 Contact Information",
+    "text": "1.1 Contact Information\nKushagra Shukla\n📧 kushu123456789@gmail.com\n🔗 Portfolio\n🐦 @kushagracodes\n🔗 LinkedIn\n📊 Kaggle\n💻 GitHub",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
     ]
