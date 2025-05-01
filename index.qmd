@@ -11,8 +11,9 @@ This book presents a practical analysis of e-commerce customer data to extract a
 
 The analysis draws from the [Kaggle E-Commerce Customer Dataset](https://www.kaggle.com/datasets/iyadavvaibhav/ecommerce-customer-device-usage), which contains valuable metrics on customer interactions, device preferences, and purchasing habits. My goal is to provide readers with a framework for transforming raw data into strategic business intelligence.
 
-Please check the next chapter for results and conclusions.
+**Please check the next chapter for results and conclusions.**
 
+**GitHub Link:** https://github.com/KushagraShukla30/EcomLinearRegression
 ---
 
 ### Contact Information
@@ -20,7 +21,8 @@ Please check the next chapter for results and conclusions.
 Kushagra Shukla  
 - **LinkedIn**: [shukla-kushagra](https://www.linkedin.com/in/shukla-kushagra)  
 - **Kaggle**: [KushagraShukla](https://www.kaggle.com/KushagraShukla)  
-- **Email**: [kushu123456789@gmail.com](mailto:kushu123456789@gmail.com)  
+- **Email**: [kushu123456789@gmail.com](mailto:kushu123456789@gmail.com) 
+- **GitHub**: [@kushagrashukla30](https://github.com/KushagraShukla30)
 - **Portfolio**: [kushu.vercel.app](https://kushu.vercel.app)  
 - **X**: [@kushagracodes](https://twitter.com/kushagracodes)
 
