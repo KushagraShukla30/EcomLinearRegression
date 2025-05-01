@@ -10,6 +10,16 @@
     ]
   },
   {
+    "objectID": "index.html#preface",
+    "href": "index.html#preface",
+    "title": "E-Commerce Customer Insights",
+    "section": "",
+    "text": "0.1.1 Contact Information\nKushagra Shukla\n- LinkedIn: shukla-kushagra\n- Kaggle: KushagraShukla\n- Email: kushu123456789@gmail.com\n- Portfolio: kushu.vercel.app\n- X: @kushagracodes\n\nKushagra Shukla",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
     "objectID": "analysis.html",
     "href": "analysis.html",
     "title": "2  Customer Spending Analysis",
@@ -77,16 +87,6 @@
     "text": "2.7 Conclusions\nBased on the analysis of the e-commerce customer data, we can draw the following key insights:\n\nMembership Duration: The strongest predictor of customer behavior is the length of their membership. Specifically, for every year of membership, the model indicates a coefficient of 64.2 years, suggesting that longer membership durations correlate with higher engagement or purchases.\nModel Performance: The linear regression model explains 65.5% of the variance in customer behavior. This indicates that the model provides a fairly strong fit, capturing a significant portion of the factors influencing customer actions.\n\nThese findings provide valuable insights that can guide e-commerce platforms in identifying key customer segments and tailoring strategies to enhance customer retention and engagement.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Customer Spending Analysis</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#preface",
-    "href": "index.html#preface",
-    "title": "E-Commerce Customer Insights",
-    "section": "",
-    "text": "0.1.1 Contact Information\nKushagra Shukla\n- LinkedIn: shukla-kushagra\n- Kaggle: KushagraShukla\n- Email: kushu123456789@gmail.com\n- Portfolio: kushu.vercel.app\n- X: @kushagracodes\n\nKushagra Shukla",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
     ]
   }
 ]
